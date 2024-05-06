@@ -60,13 +60,16 @@
                                     <constraint firstAttribute="height" constant="150" id="gfG-ZC-gZy"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ingrese titulo" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="akd-fc-aeh">
-                                <rect key="frame" x="56.666666666666657" y="305" width="280" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ingrese titulo" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="akd-fc-aeh">
+                                <rect key="frame" x="140" y="409" width="112.66666666666666" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bhn-gd-VTe">
-                                <rect key="frame" x="136.66666666666666" y="359" width="119.99999999999997" height="35"/>
+                            <pickerView tag="3" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lxq-e1-XJP">
+                                <rect key="frame" x="57" y="328" width="280" height="51"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bhn-gd-VTe">
+                                <rect key="frame" x="137" y="487" width="119.99999999999997" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="1Vv-jU-Cf0"/>
                                     <constraint firstAttribute="width" constant="120" id="aim-BM-WNW"/>
@@ -81,13 +84,16 @@
                         <viewLayoutGuide key="safeArea" id="9MB-Fd-inl"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="akd-fc-aeh" firstAttribute="centerX" secondItem="eC6-Ep-vfB" secondAttribute="centerX" id="7g8-2T-fhp"/>
-                            <constraint firstItem="akd-fc-aeh" firstAttribute="top" secondItem="eC6-Ep-vfB" secondAttribute="bottom" constant="20" id="TtQ-1D-aEH"/>
+                            <constraint firstItem="akd-fc-aeh" firstAttribute="width" secondItem="Lxq-e1-XJP" secondAttribute="width" multiplier="0.286684" id="7A7-mX-gTL"/>
+                            <constraint firstItem="Lxq-e1-XJP" firstAttribute="centerX" secondItem="eC6-Ep-vfB" secondAttribute="centerX" id="LEt-aT-H0f"/>
+                            <constraint firstItem="Lxq-e1-XJP" firstAttribute="width" secondItem="eC6-Ep-vfB" secondAttribute="width" multiplier="1.40357" id="U8p-k1-02X"/>
                             <constraint firstItem="Bhn-gd-VTe" firstAttribute="centerX" secondItem="akd-fc-aeh" secondAttribute="centerX" id="UeV-11-uxI"/>
                             <constraint firstItem="eC6-Ep-vfB" firstAttribute="top" secondItem="9MB-Fd-inl" secondAttribute="top" constant="32" id="Zk6-Wr-m0U"/>
+                            <constraint firstItem="Lxq-e1-XJP" firstAttribute="top" secondItem="eC6-Ep-vfB" secondAttribute="bottom" constant="-20" id="dEV-gk-D73"/>
+                            <constraint firstItem="akd-fc-aeh" firstAttribute="centerX" secondItem="Lxq-e1-XJP" secondAttribute="centerX" id="dIg-xh-gVd"/>
                             <constraint firstItem="eC6-Ep-vfB" firstAttribute="centerX" secondItem="6em-ad-h57" secondAttribute="centerX" id="eVM-qa-EsT"/>
+                            <constraint firstItem="akd-fc-aeh" firstAttribute="top" secondItem="Lxq-e1-XJP" secondAttribute="bottom" constant="-16" id="r30-5K-IEA"/>
                             <constraint firstItem="Bhn-gd-VTe" firstAttribute="top" secondItem="akd-fc-aeh" secondAttribute="bottom" constant="20" id="rU6-2i-RY2"/>
-                            <constraint firstItem="akd-fc-aeh" firstAttribute="width" secondItem="eC6-Ep-vfB" secondAttribute="width" id="yXC-mm-3Jg"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AII-t2-84y">
@@ -107,6 +113,7 @@
                     <connections>
                         <outlet property="agregarActualizarBoton" destination="Bhn-gd-VTe" id="77C-YQ-Zyx"/>
                         <outlet property="imageView" destination="eC6-Ep-vfB" id="Y0q-ro-vLx"/>
+                        <outlet property="pickerView" destination="Lxq-e1-XJP" id="Vlg-lV-BVf"/>
                         <outlet property="tituloTextField" destination="akd-fc-aeh" id="zNg-lS-zI4"/>
                     </connections>
                 </viewController>

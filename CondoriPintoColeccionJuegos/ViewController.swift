@@ -35,15 +35,31 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         let juego = juegos[indexPath.row]
-        cell.textLabel?.text = juego.titulo
+        cell.textLabel?.text = "\(juego.titulo!) \(juego.categoria!)"
         cell.imageView?.image = UIImage(data: (juego.imagen!))
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let juego = juegos[indexPath.row]
-        performSegue(withIdentifier: "juegoSegue", sender: juego)
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let btnel = UITableViewRowAction(style: .normal, title: "Eliminar") {
+            (fila, indexPath) in
+            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+            context.delete(self.juegos[indexPath.row])
+            self.juegos.remove(at: indexPath.row)
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+            tableView.reloadData()
+        }
+        let btned = UITableViewRowAction(style: .normal, title: "Editar") {
+            (fila, indexPath) in
+            let juego = self.juegos[indexPath.row]
+            
+            self.performSegue(withIdentifier: "juegoSegue", sender: juego)
+        }
+        btnel.backgroundColor = UIColor.red
+        btned.backgroundColor = UIColor.green
+        return [btned, btnel]
     }
+    
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -53,16 +69,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let juego = juegos[sourceIndexPath.row]
         juegos.remove(at: sourceIndexPath.row)
         juegos.insert(juego, at: destinationIndexPath.row)
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-            context.delete(juegos[indexPath.row])
-            juegos.remove(at: indexPath.row)
-            (UIApplication.shared.delegate as! AppDelegate).saveContext()
-            tableView.reloadData()
-        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
