@@ -33,7 +33,7 @@
                     <navigationItem key="navigationItem" id="upX-7p-JTO">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="AJu-uJ-9jF">
                             <connections>
-                                <segue destination="pYC-CO-vzP" kind="show" id="szj-cD-dHR"/>
+                                <segue destination="pYC-CO-vzP" kind="show" identifier="juegoSegue" id="szj-cD-dHR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -66,10 +66,10 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bhn-gd-VTe">
-                                <rect key="frame" x="154" y="359" width="85" height="35"/>
+                                <rect key="frame" x="136.66666666666666" y="359" width="119.99999999999997" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="1Vv-jU-Cf0"/>
-                                    <constraint firstAttribute="width" constant="85" id="aim-BM-WNW"/>
+                                    <constraint firstAttribute="width" constant="120" id="aim-BM-WNW"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Agregar"/>
@@ -77,16 +77,31 @@
                                     <action selector="agregarTapped:" destination="pYC-CO-vzP" eventType="touchUpInside" id="pEi-I1-LcS"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sZt-sl-tyy">
+                                <rect key="frame" x="154.66666666666666" y="409" width="84" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="Fyf-Cu-GIq"/>
+                                    <constraint firstAttribute="height" constant="35" id="hrT-4J-G9w"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Eliminar"/>
+                                <connections>
+                                    <action selector="eliminarTapped:" destination="pYC-CO-vzP" eventType="touchUpInside" id="Kfb-hS-5Jg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9MB-Fd-inl"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="akd-fc-aeh" firstAttribute="centerX" secondItem="eC6-Ep-vfB" secondAttribute="centerX" id="7g8-2T-fhp"/>
+                            <constraint firstItem="sZt-sl-tyy" firstAttribute="width" secondItem="Bhn-gd-VTe" secondAttribute="width" multiplier="0.7" id="8Yo-y5-0J2"/>
+                            <constraint firstItem="sZt-sl-tyy" firstAttribute="top" secondItem="Bhn-gd-VTe" secondAttribute="bottom" constant="15" id="MdB-CB-qSq"/>
                             <constraint firstItem="akd-fc-aeh" firstAttribute="top" secondItem="eC6-Ep-vfB" secondAttribute="bottom" constant="20" id="TtQ-1D-aEH"/>
                             <constraint firstItem="Bhn-gd-VTe" firstAttribute="centerX" secondItem="akd-fc-aeh" secondAttribute="centerX" id="UeV-11-uxI"/>
                             <constraint firstItem="eC6-Ep-vfB" firstAttribute="top" secondItem="9MB-Fd-inl" secondAttribute="top" constant="32" id="Zk6-Wr-m0U"/>
                             <constraint firstItem="eC6-Ep-vfB" firstAttribute="centerX" secondItem="6em-ad-h57" secondAttribute="centerX" id="eVM-qa-EsT"/>
                             <constraint firstItem="Bhn-gd-VTe" firstAttribute="top" secondItem="akd-fc-aeh" secondAttribute="bottom" constant="20" id="rU6-2i-RY2"/>
+                            <constraint firstItem="sZt-sl-tyy" firstAttribute="centerX" secondItem="Bhn-gd-VTe" secondAttribute="centerX" id="xu0-uO-3GF"/>
                             <constraint firstItem="akd-fc-aeh" firstAttribute="width" secondItem="eC6-Ep-vfB" secondAttribute="width" id="yXC-mm-3Jg"/>
                         </constraints>
                     </view>
@@ -105,6 +120,8 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="agregarActualizarBoton" destination="Bhn-gd-VTe" id="77C-YQ-Zyx"/>
+                        <outlet property="eliminarBoton" destination="sZt-sl-tyy" id="L9V-AH-YtT"/>
                         <outlet property="imageView" destination="eC6-Ep-vfB" id="Y0q-ro-vLx"/>
                         <outlet property="tituloTextField" destination="akd-fc-aeh" id="zNg-lS-zI4"/>
                     </connections>
