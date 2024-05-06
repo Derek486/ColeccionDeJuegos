@@ -14,6 +14,7 @@
 		FFCA28322BE9570D00D09F41 /* CondoriPintoColeccionJuegos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FFCA28302BE9570D00D09F41 /* CondoriPintoColeccionJuegos.xcdatamodeld */; };
 		FFCA28342BE9570E00D09F41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFCA28332BE9570E00D09F41 /* Assets.xcassets */; };
 		FFCA28372BE9570E00D09F41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFCA28352BE9570E00D09F41 /* LaunchScreen.storyboard */; };
+		FFCA283F2BE95F2200D09F41 /* JuegosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA283E2BE95F2200D09F41 /* JuegosViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		FFCA28332BE9570E00D09F41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FFCA28362BE9570E00D09F41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FFCA28382BE9570E00D09F41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FFCA283E2BE95F2200D09F41 /* JuegosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuegosViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				FFCA28292BE9570D00D09F41 /* SceneDelegate.swift */,
 				FFCA282B2BE9570D00D09F41 /* ViewController.swift */,
 				FFCA282D2BE9570D00D09F41 /* Main.storyboard */,
+				FFCA283E2BE95F2200D09F41 /* JuegosViewController.swift */,
 				FFCA28332BE9570E00D09F41 /* Assets.xcassets */,
 				FFCA28352BE9570E00D09F41 /* LaunchScreen.storyboard */,
 				FFCA28382BE9570E00D09F41 /* Info.plist */,
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFCA283F2BE95F2200D09F41 /* JuegosViewController.swift in Sources */,
 				FFCA28322BE9570D00D09F41 /* CondoriPintoColeccionJuegos.xcdatamodeld in Sources */,
 				FFCA282C2BE9570D00D09F41 /* ViewController.swift in Sources */,
 				FFCA28282BE9570D00D09F41 /* AppDelegate.swift in Sources */,

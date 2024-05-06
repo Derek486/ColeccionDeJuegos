@@ -11,12 +11,24 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CondoriPintoColeccionJuegos" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" customModule="CondoriPintoColeccionJuegos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TBb-ym-GgN">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="TBb-ym-GgN" secondAttribute="bottom" id="Nkh-Cz-Yzl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TBb-ym-GgN" secondAttribute="trailing" id="euw-0g-vKu"/>
+                            <constraint firstItem="TBb-ym-GgN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="fPX-Xv-tL4"/>
+                            <constraint firstItem="TBb-ym-GgN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="im1-jA-Ns7"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="upX-7p-JTO">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="AJu-uJ-9jF">
@@ -25,28 +37,81 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="TBb-ym-GgN" id="Hho-gb-vMD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1063.3587786259541" y="3.5211267605633805"/>
         </scene>
-        <!--Title-->
+        <!--Juegos View Controller-->
         <scene sceneID="THn-iJ-0ZA">
             <objects>
-                <viewController id="pYC-CO-vzP" sceneMemberID="viewController">
+                <viewController id="pYC-CO-vzP" customClass="JuegosViewController" customModule="CondoriPintoColeccionJuegos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6em-ad-h57">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eC6-Ep-vfB">
+                                <rect key="frame" x="56.666666666666657" y="135" width="280" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="A82-fO-Q9m"/>
+                                    <constraint firstAttribute="height" constant="150" id="gfG-ZC-gZy"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ingrese titulo" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="akd-fc-aeh">
+                                <rect key="frame" x="56.666666666666657" y="305" width="280" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bhn-gd-VTe">
+                                <rect key="frame" x="154" y="359" width="85" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="1Vv-jU-Cf0"/>
+                                    <constraint firstAttribute="width" constant="85" id="aim-BM-WNW"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Agregar"/>
+                                <connections>
+                                    <action selector="agregarTapped:" destination="pYC-CO-vzP" eventType="touchUpInside" id="pEi-I1-LcS"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="9MB-Fd-inl"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="akd-fc-aeh" firstAttribute="centerX" secondItem="eC6-Ep-vfB" secondAttribute="centerX" id="7g8-2T-fhp"/>
+                            <constraint firstItem="akd-fc-aeh" firstAttribute="top" secondItem="eC6-Ep-vfB" secondAttribute="bottom" constant="20" id="TtQ-1D-aEH"/>
+                            <constraint firstItem="Bhn-gd-VTe" firstAttribute="centerX" secondItem="akd-fc-aeh" secondAttribute="centerX" id="UeV-11-uxI"/>
+                            <constraint firstItem="eC6-Ep-vfB" firstAttribute="top" secondItem="9MB-Fd-inl" secondAttribute="top" constant="32" id="Zk6-Wr-m0U"/>
+                            <constraint firstItem="eC6-Ep-vfB" firstAttribute="centerX" secondItem="6em-ad-h57" secondAttribute="centerX" id="eVM-qa-EsT"/>
+                            <constraint firstItem="Bhn-gd-VTe" firstAttribute="top" secondItem="akd-fc-aeh" secondAttribute="bottom" constant="20" id="rU6-2i-RY2"/>
+                            <constraint firstItem="akd-fc-aeh" firstAttribute="width" secondItem="eC6-Ep-vfB" secondAttribute="width" id="yXC-mm-3Jg"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="AII-t2-84y">
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="CZG-Aq-qFK"/>
+                    <navigationItem key="navigationItem" id="AII-t2-84y">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="camera" id="CZG-Aq-qFK">
+                                <connections>
+                                    <action selector="camaraTapped:" destination="pYC-CO-vzP" id="8SV-eA-sWV"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Fotos" id="VsE-k9-gh6">
+                                <connections>
+                                    <action selector="fotosTapped:" destination="pYC-CO-vzP" id="F4d-dH-Dg0"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="imageView" destination="eC6-Ep-vfB" id="Y0q-ro-vLx"/>
+                        <outlet property="tituloTextField" destination="akd-fc-aeh" id="zNg-lS-zI4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WZK-Je-MFv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1772" y="4"/>
+            <point key="canvasLocation" x="1771.7557251908397" y="3.5211267605633805"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Vfk-WZ-7ks">
