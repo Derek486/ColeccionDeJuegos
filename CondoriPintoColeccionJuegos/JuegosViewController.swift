@@ -19,8 +19,6 @@ class JuegosViewController: UIViewController, UIImagePickerControllerDelegate, U
             imageView.image = UIImage(data: (juego!.imagen!) as Data)
             tituloTextField.text = juego?.titulo
             agregarActualizarBoton.setTitle("Actualizar", for: .normal)
-        } else {
-            eliminarBoton.isHidden = true
         }
     }
     @IBAction func camaraTapped(_ sender: Any) {
@@ -42,16 +40,8 @@ class JuegosViewController: UIViewController, UIImagePickerControllerDelegate, U
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         navigationController?.popViewController(animated: true)
     }
-    @IBAction func eliminarTapped(_ sender: Any) {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        context.delete(juego!)
-        (UIApplication.shared.delegate as! AppDelegate).saveContext()
-        navigationController?.popViewController(animated: true)
-    }
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var tituloTextField: UITextField!
-    
-    @IBOutlet weak var eliminarBoton: UIButton!
     @IBOutlet weak var agregarActualizarBoton: UIButton!
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let imagen = info[.originalImage] as? UIImage

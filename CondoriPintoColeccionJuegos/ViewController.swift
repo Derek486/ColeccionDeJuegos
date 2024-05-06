@@ -8,13 +8,14 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     @IBOutlet weak var tableView: UITableView!
     var juegos: [Juego] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.isEditing = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,6 +43,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let juego = juegos[indexPath.row]
         performSegue(withIdentifier: "juegoSegue", sender: juego)
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let juego = juegos[sourceIndexPath.row]
+        juegos.remove(at: sourceIndexPath.row)
+        juegos.insert(juego, at: destinationIndexPath.row)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+            context.delete(juegos[indexPath.row])
+            juegos.remove(at: indexPath.row)
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+            tableView.reloadData()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
